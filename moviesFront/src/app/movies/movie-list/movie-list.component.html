@@ -1,0 +1,52 @@
+<div class="container-fluid" style="margin-top: 5rem;">
+  <div class="row align-items-start">
+    <!-- Filter Options Column -->
+    <div class="col-12 col-md-2 d-flex flex-column">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <!-- Genre Filter -->
+        <label for="filtroGenero">Filtrar por Género:</label>
+        <select id="filtroGenero" class="form-control my-3" (change)="getMoviesByGenre()">
+          <option value="Any">Any</option>
+          <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+        </select>
+          <!-- Add more genre options as needed -->
+        <!-- Search Bar -->
+        <label for="searchBar">Buscar por nombre:</label>
+        <input type="text" id="searchBar" class="form-control my-3" placeholder="Ingrese el nombre"
+          (input)="searchMoviesByName()">
+
+      </div>
+    </div>
+
+    <!-- Movie Cards Column -->
+    <div class="container-fluid col-12 col-md-10">
+      <div class="row">
+        <!-- Pagination Controls -->
+        <div class="text-end">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+
+        <!-- Movie Cards -->
+        
+        <!-- Movie Cards -->
+        <div *ngFor="let movie of movies | paginate:{itemsPerPage: 10, currentPage: p}" class="col-6 col-md-2 mb-2 mx-3">
+          <!-- Adjusted column size to show 5 movies per row on larger screens (md) -->
+          <div class="card p-2 text-center" style="width: 12rem;">
+            <img class="card-img-top img-thumbnail rounded mx-auto d-block" src="{{movie.image}}" alt="{{ movie.name }}"
+              (click)="onSelected(movie)" />
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ movie.name }}</h5>
+              <p class="card-text">Year: {{ movie.date}}</p>
+              <p class="card-text">Score: {{ movie.score}}</p>
+              <!-- Add more properties as needed -->
+              <!-- <a [routerLink]="['/movies', movie.id]" class="btn btn-outline-dark card-text">Más información</a> -->
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
