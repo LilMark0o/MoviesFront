@@ -1,0 +1,37 @@
+<div class="container-fluid" style="margin-top: 5rem;">
+  <div class="row align-items-start">
+    <!-- Filter Options Column -->
+    <div class="col-12 col-md-2 d-flex flex-column">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <!-- Search Bar -->
+        <label for="searchBar">Buscar por nombre:</label>
+        <input type="text" id="searchBar" class="form-control my-3" placeholder="Ingrese el nombre"
+          (input)="searchActorsByName()">
+      </div>
+    </div>
+
+    <!-- Actor Cards Column -->
+    <div class="container-fluid col-12 col-md-10">
+      <div class="row">
+        <!-- Pagination Controls -->
+        <div class="text-end">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+
+        <!-- Actor Cards -->
+        <div *ngFor="let actor of actors | paginate:{itemsPerPage: 10, currentPage: p}"
+          class="col-6 col-md-2 mb-2 mx-3">
+          <div class="card p-2 text-center" style="width: 12rem;">
+            <img class="card-img-top img-thumbnail rounded mx-auto d-block" src="{{actor.image}}" alt="{{ actor.name }}"
+              (click)="onSelected(actor)" />
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ actor.name }}</h5>
+              <!-- Add more properties as needed -->
+              <a [routerLink]="['/actors', actor.id]" class="btn btn-outline-dark card-text">More details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

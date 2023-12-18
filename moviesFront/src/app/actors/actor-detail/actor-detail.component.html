@@ -1,54 +1,49 @@
-<div *ngIf="movieDetail">
+<div *ngIf="actorDetail">
   <div class="container my-5">
+        <div class="row my-5">
+          <div class="col">
+          </div>
+        </div>
+
     <div class="row my-5">
       <div class="col">
-      </div>
-    </div>
-    <div class="row my-5">
-      <div class="col">
-        <a [routerLink]="['/movies']" class="btn btn-outline-dark">Back to Movies</a>
+        <a [routerLink]="['/actors']" class="btn btn-outline-dark">Back to Actors</a>
       </div>
     </div>
     <div class="row my-5">
       <div class="col-md-6">
-        <!-- Center the movie image using Bootstrap classes -->
+        <!-- Center the actor image using Bootstrap classes -->
         <div class="d-flex justify-content-center">
-          <img src="{{ movieDetail.image }}" alt="{{ movieDetail.name }}" class="img-fluid rounded">
+          <img src="{{ actorDetail.image }}" alt="{{ actorDetail.name }}" class="img-fluid rounded">
         </div>
       </div>
       <div class="col-md-6">
-        <h2>{{ movieDetail.name }}</h2>
-        <p><strong>Date:</strong> {{ movieDetail.date }}</p>
-        <p><strong>Score:</strong> {{ movieDetail.score }}/100</p>
-        <p><strong>Overview:</strong> {{ movieDetail.overview }}</p>
-        <p><strong>Budget:</strong> {{ movieDetail.budget }}</p>
-        <p><strong>Revenue:</strong> {{ movieDetail.revenue }}</p>
-        <p><strong>Country:</strong> {{ movieDetail.country }}</p>
-      </div>
-    </div>
-
-    <div class="row mt-4">
-      <div class="col">
-        <!-- Center the carousel within a three-column layout -->
+      <h2 class="text-center">{{ actorDetail.name }}</h2>
+        <!-- Add more properties as needed -->
+      
         <div class="d-flex justify-content-center">
-          <div class="col-md-3">
+          <div class="col-md-12">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
-                <!-- Loop through the Actors array and generate a carousel item for each actor -->
-                <div *ngFor="let actor of actors; let i = index" class="carousel-item" [class.active]="i === 0">
+                <!-- Loop through the Movies array and generate a carousel item for each movie -->
+                <div *ngFor="let movie of movies; let i = index" class="carousel-item" [class.active]="i === 0">
                   <div class="cards-wrapper">
                     <div class="card">
                       <!-- Apply the new style to the card image -->
-                      <img [src]="actor.image" class="card-img-top img-fluid" alt="{{ actor.name }}">
+                      <img [src]="movie.image" class="card-img-top img-fluid" alt="{{ movie.name }}">
                       <div class="card-body">
-                        <h5 class="card-title">{{ actor.name }}</h5>
-                        <a [routerLink]="['/actors', actor.id]" class="btn btn-primary">More details</a>
+                        <h5 class="card-title">{{ movie.name }}</h5>
+                        <p><strong>Date:</strong> {{ movie.date }}</p>
+                        <p><strong>Score:</strong> {{ movie.score }}/100</p>
+                        <p><strong>Overview:</strong> {{ movie.overview }}</p>
+                        <!-- Add more properties as needed -->
+                        <a [routerLink]="['/movies', movie.id]" class="btn btn-primary">More details</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-    
+
               <!-- Add carousel controls -->
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev">
@@ -65,5 +60,5 @@
         </div>
       </div>
     </div>
-    </div>
-    </div>
+  </div>
+</div>

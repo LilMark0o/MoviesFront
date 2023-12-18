@@ -5,17 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesModule } from './movies/movies.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { ActorsModule } from './actors/actors.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MoviesModule
-  ],
+  CommonModule,
+  BrowserModule,
+  AppRoutingModule,
+  HttpClientModule,
+  MoviesModule,
+  ActorsModule
+],
+
   providers: [],
   bootstrap: [AppComponent]
 })

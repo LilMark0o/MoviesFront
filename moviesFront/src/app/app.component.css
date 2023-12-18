@@ -1,0 +1,17 @@
+  .navbar {
+      background-color: #d3d3d3;
+  }
+
+  .navbar-brand,
+  .nav-link {
+      color: #000000;
+  }
+
+  .navbar-logo {
+      width: 60px;
+  }
+
+  .app-container {
+      margin-top: 70px;
+      /* Adjust the top margin as needed */
+  }

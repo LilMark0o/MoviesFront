@@ -1,9 +1,11 @@
 export class Actor{
     id: number;
-    names: string;
+    name: string;
+    image: string;
 
-    constructor(id: number, names: string){
+    constructor(id: number, names: string, image: string){
         this.id = id;
-        this.names = names;
+        this.name = names;
+        this.image = image;
     }
 }

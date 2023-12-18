@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MovieService } from './movie.service';
 import {RouterModule} from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { Movie } from './movie';
 import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   imports: [
@@ -12,8 +12,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
     RouterModule,
     NgxPaginationModule
   ],
-  exports: [MovieListComponent],
-  declarations: [MovieListComponent],
+  exports: [MovieListComponent, MovieDetailComponent],
+  declarations: [MovieListComponent,MovieDetailComponent],
   providers: [MovieService]
 })
 export class MoviesModule { }
